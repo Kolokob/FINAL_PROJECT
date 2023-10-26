@@ -1,7 +1,7 @@
 from .base_page import BasePage
-from selenium.webdriver.common.by import By
 from .locators import LoginPageLocators
-from test_main_page import *
+
+
 class LoginPage(BasePage):
     def should_be_login_page(self):
         self.should_be_login_url()
@@ -9,15 +9,14 @@ class LoginPage(BasePage):
         self.should_be_register_form()
 
     def should_be_login_url(self):
-        # реализуйте проверку на корректный url адрес
         current_url = self.browser.current_url
-        assert 'login' in current_url
+        assert 'login' in current_url, 'This is because your url does not match to actual url'
 
     def should_be_login_form(self):
-        # реализуйте проверку, что есть форма логина
-        assert self.browser.find_element(*LoginPageLocators.LOGIN_FORM)
+        assert self.browser.find_element(*LoginPageLocators.LOGIN_FORM), ('This is because something wrong with login '
+                                                                          'form')
 
     def should_be_register_form(self):
-        # реализуйте проверку, что есть форма регистрации на странице
-        assert self.is_element_present(*LoginPageLocators.REGISTRATION_FORM), "Registration form is not presented"
+        assert self.is_element_present(*LoginPageLocators.REGISTRATION_FORM), ("This is because something wrong with "
+                                                                               "register form")
 
