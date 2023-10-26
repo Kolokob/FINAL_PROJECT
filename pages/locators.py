@@ -7,3 +7,4 @@ class MainPageLocators:
 class LoginPageLocators:
     LOGIN_FORM = (By.XPATH, "//*[@id='login_form']")
     REGISTRATION_FORM = (By.XPATH, "//*[@id='register_form']")
+

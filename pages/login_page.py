@@ -20,3 +20,4 @@ class LoginPage(BasePage):
         assert self.is_element_present(*LoginPageLocators.REGISTRATION_FORM), ("This is because something wrong with "
                                                                                "register form")
 
+
