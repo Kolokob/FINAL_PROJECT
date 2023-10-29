@@ -21,6 +21,7 @@ import math
 ])
 def test_guest_can_add_product_to_basket_working_links(browser, link):
     page = ProductPage(browser, link)
+
     page.open()
     page.should_be_able_to_add_to_basket()
     time.sleep(1)
@@ -56,3 +57,43 @@ def test_guest_can_add_product_to_basket(browser, link):
     time.sleep(2)
     page.should_be_able_to_see_messages()
     time.sleep(2)
+
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    link = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/'
+
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_able_to_add_to_basket()
+    page.should_not_be_success_message()
+
+
+def test_guest_cant_see_success_message(browser):
+    link = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/'
+
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_not_be_success_message()
+
+def test_message_disappeared_after_adding_product_to_basket(browser):
+
+    link = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/'
+
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_able_to_add_to_basket()
+    page.should_disappeared_success_message()
+
+
+def test_guest_should_see_login_link_on_product_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_login_link()
+
+
+def test_guest_can_go_to_login_page_from_product_page(browser):
+    link = 'http://selenium1py.pythonanywhere.com/ru/catalogue/'
+
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_login_link()

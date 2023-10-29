@@ -16,3 +16,10 @@ class ProductPageLocators:
     BOOK_NAME = (By.XPATH, "//h1[contains(text(),'Coders at Work')]")
     BOOK_PRICE = (By.XPATH, "//p[contains(text(),'£19.99')]")
     BOOK_PRICE_IN_MESSAGE = (By.XPATH, "//strong[contains(text(),'£19.99')]")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success")
+    BASKET_PRODUCT_NAME = (By.CSS_SELECTOR, "#messages > div:nth-of-type(1) strong")
+
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
