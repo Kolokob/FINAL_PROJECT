@@ -20,6 +20,12 @@ class ProductPageLocators:
     BASKET_PRODUCT_NAME = (By.CSS_SELECTOR, "#messages > div:nth-of-type(1) strong")
 
 
-class BasePageLocators():
+class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    VIEW_BASKET = (By.XPATH, "//a[@class='btn btn-default']")
+
+
+class BasketPageLocators:
+    EMPTY_BASKET_MESSAGE = (By.XPATH, "//div[@id='content_inner']")
+    EMPTY_BASKET_INCORRECT_MESSAGE = (By.XPATH, "//h2[contains(text(),'Items to buy now')]")

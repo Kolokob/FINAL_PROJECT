@@ -1,14 +1,5 @@
-import math
-import time
-
-
-from selenium.common import NoAlertPresentException, TimeoutException
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-
 from .base_page import BasePage
-from .locators import ProductPageLocators
+from .locators import *
 
 
 class ProductPage(BasePage):
@@ -25,13 +16,13 @@ class ProductPage(BasePage):
         assert book_name.text == text_message.text, 'Book name and book name in the message is not same'
         assert book_price.text == book_price_in_message.text, 'Book price and book price in the message is not same'
 
+    # --- Negative tests block start ---
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is presented, but should not be"
 
     def should_disappeared_success_message(self):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
-            "Success message did not disappeared, but should has"
+            "Success message did not disappeared, but should have"
 
-
-
+    # --- Negative tests block end ---
